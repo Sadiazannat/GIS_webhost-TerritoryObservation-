@@ -20,7 +20,7 @@
             margin: 0;
         }
         </style>
-        <title>Lheidli T'enneh Territory Observation for Wildfire/Historical Floodplain/Evacuation order</title>
+        <title>Lheidli T'enneh Territory Emergency Map</title>
     </head>
     <body>
         <div id="map">
@@ -58,7 +58,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[50.77172877723854,-130.0721451699653],[56.060315481669534,-111.09176454681283]]);
+        }).fitBounds([[49.91203124294695,-128.8960840410862],[55.300839326452675,-114.04985763911279]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -141,10 +141,10 @@
             return this._div;
         };
         title.update = function () {
-            this._div.innerHTML = '<h2>Lheidli T\'enneh Territory Observation for Wildfire/Historical Floodplain/Evacuation order</h2>';
+            this._div.innerHTML = '<h2>Lheidli T\'enneh Territory Emergency Map</h2>';
         };
         title.addTo(map);
-        var abstract = new L.Control({'position':'bottomright'});
+        var abstract = new L.Control({'position':'topright'});
         abstract.onAdd = function (map) {
             this._div = L.DomUtil.create('div',
             'leaflet-control abstract');
@@ -162,7 +162,7 @@
             abstract.show = function () {
                 this._div.classList.remove("abstract");
                 this._div.classList.add("abstractUncollapsed");
-                this._div.innerHTML = 'Observe the smoke forecast: <a href="https://firesmoke.ca/forecasts/current/?lat=53.536&lon=-122.367&zoom=7" target="_blank" ><strong>smokefire</strong></a><br /><br />Observe the temperature forecast: <a href="https://www.windy.com/-Menu/menu?temp,53.919,-122.698,11,p:cities,m:e7wacNV" target="_blank" ><strong>temperature</strong></a><br /><br />Observe BC wildfire services map: <a href="https://wildfiresituation.nrs.gov.bc.ca/map" target="_blank" ><strong>BC Wildfire Services</strong></a><br />';
+                this._div.innerHTML = 'Observe the smoke forecast: <a href="https://firesmoke.ca/forecasts/current/?lat=53.536&lon=-122.367&zoom=7" target="_blank" ><strong>smokefire</strong></a><br /><br />Observe the temperature forecast: <a href="https://www.windy.com/-Menu/menu?temp,53.919,-122.698,11,p:cities,m:e7wacNV" target="_blank" ><strong>temperature</strong></a><br /><br />BC wildfire services map: <a href="https://wildfiresituation.nrs.gov.bc.ca/map" target="_blank" ><strong>BC Wildfire Services</strong></a><br />';
         };
         abstract.addTo(map);
         var zoomControl = L.control.zoom({
@@ -194,10 +194,10 @@
         });
         layer_GoogleRoad_0;
         map.addLayer(layer_GoogleRoad_0);
-        map.createPane('pane_MappedFloodplainsinBCHistorical_1');
-        map.getPane('pane_MappedFloodplainsinBCHistorical_1').style.zIndex = 401;
-        var layer_MappedFloodplainsinBCHistorical_1 = L.WMS.layer("https://openmaps.gov.bc.ca/geo/pub/WHSE_BASEMAPPING.CWB_FLOODPLAINS_BC_AREA_SVW/ows", "pub:WHSE_BASEMAPPING.CWB_FLOODPLAINS_BC_AREA_SVW", {
-            pane: 'pane_MappedFloodplainsinBCHistorical_1',
+        map.createPane('pane_AvalancheandWeatherProgramsWeatherStationNetwork_1');
+        map.getPane('pane_AvalancheandWeatherProgramsWeatherStationNetwork_1').style.zIndex = 401;
+        var layer_AvalancheandWeatherProgramsWeatherStationNetwork_1 = L.WMS.layer("https://openmaps.gov.bc.ca/geo/pub/WHSE_ENVIRONMENTAL_MONITORING.TAWP_WEATHER_FROST_STN_POINT/ows", "pub:WHSE_ENVIRONMENTAL_MONITORING.TAWP_WEATHER_FROST_STN_POINT", {
+            pane: 'pane_AvalancheandWeatherProgramsWeatherStationNetwork_1',
             format: 'image/png',
             uppercase: true,
             transparent: true,
@@ -207,11 +207,11 @@
             opacity: 1,
             attribution: '',
         });
-        map.addLayer(layer_MappedFloodplainsinBCHistorical_1);
-        map.createPane('pane_BCWildfireFireLocationsCurrent_2');
-        map.getPane('pane_BCWildfireFireLocationsCurrent_2').style.zIndex = 402;
-        var layer_BCWildfireFireLocationsCurrent_2 = L.WMS.layer("https://openmaps.gov.bc.ca/geo/pub/WHSE_LAND_AND_NATURAL_RESOURCE.PROT_CURRENT_FIRE_PNTS_SP/ows", "pub:WHSE_LAND_AND_NATURAL_RESOURCE.PROT_CURRENT_FIRE_PNTS_SP", {
-            pane: 'pane_BCWildfireFireLocationsCurrent_2',
+        map.addLayer(layer_AvalancheandWeatherProgramsWeatherStationNetwork_1);
+        map.createPane('pane_MappedFloodplainsinBCHistorical_2');
+        map.getPane('pane_MappedFloodplainsinBCHistorical_2').style.zIndex = 402;
+        var layer_MappedFloodplainsinBCHistorical_2 = L.WMS.layer("https://openmaps.gov.bc.ca/geo/pub/WHSE_BASEMAPPING.CWB_FLOODPLAINS_BC_AREA_SVW/ows", "pub:WHSE_BASEMAPPING.CWB_FLOODPLAINS_BC_AREA_SVW", {
+            pane: 'pane_MappedFloodplainsinBCHistorical_2',
             format: 'image/png',
             uppercase: true,
             transparent: true,
@@ -221,11 +221,11 @@
             opacity: 1,
             attribution: '',
         });
-        map.addLayer(layer_BCWildfireFireLocationsCurrent_2);
-        map.createPane('pane_EvacuationOrdersandAlerts_3');
-        map.getPane('pane_EvacuationOrdersandAlerts_3').style.zIndex = 403;
-        var layer_EvacuationOrdersandAlerts_3 = L.WMS.layer("https://openmaps.gov.bc.ca/geo/pub/WHSE_HUMAN_CULTURAL_ECONOMIC.EMRG_ORDER_AND_ALERT_AREAS_SP/ows", "pub:WHSE_HUMAN_CULTURAL_ECONOMIC.EMRG_ORDER_AND_ALERT_AREAS_SP", {
-            pane: 'pane_EvacuationOrdersandAlerts_3',
+        map.addLayer(layer_MappedFloodplainsinBCHistorical_2);
+        map.createPane('pane_BCWildfireFirePerimetersCurrent_3');
+        map.getPane('pane_BCWildfireFirePerimetersCurrent_3').style.zIndex = 403;
+        var layer_BCWildfireFirePerimetersCurrent_3 = L.WMS.layer("https://openmaps.gov.bc.ca/geo/pub/WHSE_LAND_AND_NATURAL_RESOURCE.PROT_CURRENT_FIRE_POLYS_SP/ows", "pub:WHSE_LAND_AND_NATURAL_RESOURCE.PROT_CURRENT_FIRE_POLYS_SP", {
+            pane: 'pane_BCWildfireFirePerimetersCurrent_3',
             format: 'image/png',
             uppercase: true,
             transparent: true,
@@ -235,11 +235,11 @@
             opacity: 1,
             attribution: '',
         });
-        map.addLayer(layer_EvacuationOrdersandAlerts_3);
-        map.createPane('pane_BCWildfireFirePerimetersCurrent_4');
-        map.getPane('pane_BCWildfireFirePerimetersCurrent_4').style.zIndex = 404;
-        var layer_BCWildfireFirePerimetersCurrent_4 = L.WMS.layer("https://openmaps.gov.bc.ca/geo/pub/WHSE_LAND_AND_NATURAL_RESOURCE.PROT_CURRENT_FIRE_POLYS_SP/ows", "pub:WHSE_LAND_AND_NATURAL_RESOURCE.PROT_CURRENT_FIRE_POLYS_SP", {
-            pane: 'pane_BCWildfireFirePerimetersCurrent_4',
+        map.addLayer(layer_BCWildfireFirePerimetersCurrent_3);
+        map.createPane('pane_EvacuationOrdersandAlerts_4');
+        map.getPane('pane_EvacuationOrdersandAlerts_4').style.zIndex = 404;
+        var layer_EvacuationOrdersandAlerts_4 = L.WMS.layer("https://openmaps.gov.bc.ca/geo/pub/WHSE_HUMAN_CULTURAL_ECONOMIC.EMRG_ORDER_AND_ALERT_AREAS_SP/ows", "pub:WHSE_HUMAN_CULTURAL_ECONOMIC.EMRG_ORDER_AND_ALERT_AREAS_SP", {
+            pane: 'pane_EvacuationOrdersandAlerts_4',
             format: 'image/png',
             uppercase: true,
             transparent: true,
@@ -249,11 +249,11 @@
             opacity: 1,
             attribution: '',
         });
-        map.addLayer(layer_BCWildfireFirePerimetersCurrent_4);
-        map.createPane('pane_AvalancheandWeatherProgramsWeatherStationNetwork_5');
-        map.getPane('pane_AvalancheandWeatherProgramsWeatherStationNetwork_5').style.zIndex = 405;
-        var layer_AvalancheandWeatherProgramsWeatherStationNetwork_5 = L.WMS.layer("https://openmaps.gov.bc.ca/geo/pub/WHSE_ENVIRONMENTAL_MONITORING.TAWP_WEATHER_FROST_STN_POINT/ows", "pub:WHSE_ENVIRONMENTAL_MONITORING.TAWP_WEATHER_FROST_STN_POINT", {
-            pane: 'pane_AvalancheandWeatherProgramsWeatherStationNetwork_5',
+        map.addLayer(layer_EvacuationOrdersandAlerts_4);
+        map.createPane('pane_BCWildfireFireLocationsCurrent_5');
+        map.getPane('pane_BCWildfireFireLocationsCurrent_5').style.zIndex = 405;
+        var layer_BCWildfireFireLocationsCurrent_5 = L.WMS.layer("https://openmaps.gov.bc.ca/geo/pub/WHSE_LAND_AND_NATURAL_RESOURCE.PROT_CURRENT_FIRE_PNTS_SP/ows", "pub:WHSE_LAND_AND_NATURAL_RESOURCE.PROT_CURRENT_FIRE_PNTS_SP", {
+            pane: 'pane_BCWildfireFireLocationsCurrent_5',
             format: 'image/png',
             uppercase: true,
             transparent: true,
@@ -263,7 +263,7 @@
             opacity: 1,
             attribution: '',
         });
-        map.addLayer(layer_AvalancheandWeatherProgramsWeatherStationNetwork_5);
+        map.addLayer(layer_BCWildfireFireLocationsCurrent_5);
         function pop_LTFN_Border_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -329,15 +329,15 @@
         map.addLayer(layer_LTFN_Border_6);
         map.on("zoomend", function(e) {
             if (map.getZoom() <= 19 && map.getZoom() >= 2) {
-                map.addLayer(layer_BCWildfireFirePerimetersCurrent_4);
+                map.addLayer(layer_BCWildfireFirePerimetersCurrent_3);
             } else if (map.getZoom() > 19 || map.getZoom() < 2) {
-                map.removeLayer(layer_BCWildfireFirePerimetersCurrent_4);
+                map.removeLayer(layer_BCWildfireFirePerimetersCurrent_3);
             }
         });
             if (map.getZoom() <= 19 && map.getZoom() >= 2) {
-                map.addLayer(layer_BCWildfireFirePerimetersCurrent_4);
+                map.addLayer(layer_BCWildfireFirePerimetersCurrent_3);
             } else if (map.getZoom() > 19 || map.getZoom() < 2) {
-                map.removeLayer(layer_BCWildfireFirePerimetersCurrent_4);
+                map.removeLayer(layer_BCWildfireFirePerimetersCurrent_3);
             }
         const url = {"Nominatim OSM": "https://nominatim.openstreetmap.org/search?format=geojson&addressdetails=1&",
         "France BAN": "https://api-adresse.data.gouv.fr/search/?"}
@@ -394,11 +394,11 @@
         });
         var overlaysTree = [
             {label: '<img src="legend/LTFN_Border_6.png" /> LTFN_Border', layer: layer_LTFN_Border_6},
-            {label: "Avalanche and Weather Programs - Weather Station Network", layer: layer_AvalancheandWeatherProgramsWeatherStationNetwork_5},
-            {label: "BC Wildfire Fire Perimeters - Current", layer: layer_BCWildfireFirePerimetersCurrent_4},
-            {label: "Evacuation Orders and Alerts", layer: layer_EvacuationOrdersandAlerts_3},
-            {label: "BC Wildfire Fire Locations - Current", layer: layer_BCWildfireFireLocationsCurrent_2},
-            {label: "Mapped Floodplains in BC (Historical)", layer: layer_MappedFloodplainsinBCHistorical_1},
+            {label: "BC Wildfire Fire Locations - Current", layer: layer_BCWildfireFireLocationsCurrent_5},
+            {label: "Evacuation Orders and Alerts", layer: layer_EvacuationOrdersandAlerts_4},
+            {label: "BC Wildfire Fire Perimeters - Current", layer: layer_BCWildfireFirePerimetersCurrent_3},
+            {label: "Mapped Floodplains in BC (Historical)", layer: layer_MappedFloodplainsinBCHistorical_2},
+            {label: "Avalanche and Weather Programs - Weather Station Network", layer: layer_AvalancheandWeatherProgramsWeatherStationNetwork_1},
             {label: "Google Road", layer: layer_GoogleRoad_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
