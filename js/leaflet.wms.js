@@ -215,7 +215,14 @@ wms.Source = L.Layer.extend({
         if (!this._map) {
             return;
         }
-        this._map.openPopup(info, latlng);
+        L.popup({
+            maxHeight: 400,
+            maxWidth: 500,
+            autoPan: true
+        })
+         .setLatLng(latlng)
+         .setContent(info)
+        .openOn(this._map);
     },
 
     'showWaiting': function() {
